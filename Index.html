@@ -3,35 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Terminal Login</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>HackApp</title>
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #f0f6fc;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 1rem;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <div class="terminal">
-      <h1>🛡️ WELCOME TO PROJECT GOLDMOUNT 🛡️</h1>
-      <p class="intro">Agent Authentication Required</p>
+  <h1>Welcome to HackApp</h1>
+  <p>Login Below</p>
+  <input type="text" placeholder="Username" id="username" /><br>
+  <input type="password" placeholder="Password" id="password" /><br>
+  <button onclick="login()">Login</button>
 
-      <input type="text" id="username" placeholder="Username" autocomplete="off" />
-      <input type="password" id="password" placeholder="Password" autocomplete="off" />
-      <button onclick="authenticate()">LOGIN</button>
-
-      <p id="error" class="hidden">❌ Invalid credentials. Access Denied.</p>
-    </div>
-
-    <div class="lore hidden" id="lore">
-      <h2>✔️ ACCESS GRANTED ✔️</h2>
-      <p>
-        Welcome, Agent.<br><br>
-        You have unlocked Level 7: <b>GOLDMOUNT INTEL VAULT</b><br><br>
-        🔒 Jax has forged the <b>Golden Mountain of Wrath</b><br>
-        🔥 Hidden within are <b>288 Frost Elden Rings of Fire</b><br>
-        🕳️ Sealed inside the <b>Deathly Hallow of Fear</b>, guarded by shadows of regret.<br><br>
-        Proceed with caution. The last agent never returned...
-      </p>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+  <script>
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      if (user === "admin" && pass === "jaxmaster") {
+        document.body.innerHTML = "<h1>Jax has made the world's best golden mountain of wrath and has 288 frost elden rings of fire hidden in the deathly hallow of fear</h1>";
+      } else {
+        alert("Access Denied");
+      }
+    }
+  </script>
 </body>
 </html>
